@@ -1,5 +1,3 @@
-package de.neuefische;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,7 +8,6 @@ import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
-
 
             List<Integer> list = List.of( 12, 15, 14, 11);
 
@@ -24,6 +21,10 @@ public class Main {
             List<Integer> list2 = list.stream().map(integer -> integer * 2).toList();
             System.out.println(list2);
 
+            List<Integer> collect = list.stream().map(integer -> integer * 3).collect(Collectors.toList());
+            System.out.println(collect);
+
+
             System.out.println(list.stream().sorted((o1, o2) -> o2-o1).toList());
 
             Integer reduce = list.stream().reduce(0, (integer, integer2) -> integer + integer2);
@@ -32,11 +33,7 @@ public class Main {
             Integer reduce1 = list.stream().reduce(0, Integer::sum);
             System.out.println(reduce1);
 
-
             list.forEach(System.out::println);
-
-            List<Integer> collect = list.stream().map(integer -> integer * 3).collect(Collectors.toList());
-            System.out.println(collect);
 
 
     }
